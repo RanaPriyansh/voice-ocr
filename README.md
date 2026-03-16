@@ -23,7 +23,7 @@ Everything runs **locally on your machine**. No API keys. No data sent anywhere.
 - **Offline** — No internet needed after initial setup
 - **Fast** — Uses faster-whisper (5x faster than OpenAI's whisper)
 - **Multi-language** — 99 languages for STT, 100+ for OCR
-- **CLI + Python API + Web UI** — Use however you want
+- **CLI + Python API** — Use however you want
 - **GPU optional** — Runs great on CPU, faster with GPU
 - **Docker ready** — One command to deploy
 
@@ -83,15 +83,6 @@ text = ocr("image.png", language="eng")
 print(text)
 ```
 
-### Web UI
-
-```bash
-freescribe serve
-# Open http://localhost:5000
-```
-
-Drag and drop files. Get instant transcription/OCR results.
-
 ## Supported Formats
 
 ### Audio (Speech-to-Text)
@@ -140,7 +131,7 @@ brew install tesseract-lang
 ```dockerfile
 # Dockerfile included
 docker build -t freescribe .
-docker run -p 5000:5000 freescribe
+docker run freescribe freescribe transcribe audio.mp3
 ```
 
 ## Contributing

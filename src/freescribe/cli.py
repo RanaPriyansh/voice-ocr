@@ -21,7 +21,6 @@ Examples:
   freescribe ocr screenshot.png
   freescribe ocr document.jpg --language spa
   freescribe batch /path/to/audio/ --output transcripts/
-  freescribe serve --port 5000
         """
     )
     
@@ -61,11 +60,6 @@ Examples:
     batch_parser.add_argument("-t", "--timestamps", action="store_true",
                              help="Include timestamps")
     
-    # Serve command
-    serve_parser = subparsers.add_parser("serve", help="Launch web interface")
-    serve_parser.add_argument("-p", "--port", type=int, default=5000, help="Port (default: 5000)")
-    serve_parser.add_argument("--host", default="127.0.0.1", help="Host (default: 127.0.0.1)")
-    
     # Version
     parser.add_argument("-v", "--version", action="version", version="%(prog)s 1.0.0")
     
@@ -81,8 +75,6 @@ Examples:
         cmd_ocr(args)
     elif args.command == "batch":
         cmd_batch(args)
-    elif args.command == "serve":
-        cmd_serve(args)
 
 
 def cmd_transcribe(args):
@@ -203,22 +195,6 @@ def cmd_batch(args):
                   file=sys.stderr)
     
     print(f"\nDone! Results in: {output_dir}", file=sys.stderr)
-
-
-def cmd_serve(args):
-    """Launch web interface."""
-    try:
-        from .web import create_app
-    except ImportError:
-        print("Web dependencies not installed.", file=sys.stderr)
-        print("Install with: pip install freescribe[web]", file=sys.stderr)
-        sys.exit(1)
-    
-    app = create_app()
-    print(f"Starting FreeScribe web server on http://{args.host}:{args.port}", 
-          file=sys.stderr)
-    print("Press Ctrl+C to stop", file=sys.stderr)
-    app.run(host=args.host, port=args.port, debug=False)
 
 
 if __name__ == "__main__":

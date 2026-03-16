@@ -21,8 +21,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 RUN pip install -e .
 
-# Expose web port
-EXPOSE 5000
-
-# Default: run web interface
-CMD ["freescribe", "serve", "--host", "0.0.0.0", "--port", "5000"]
+# Use as library or CLI
+# Example: docker run freescribe freescribe transcribe audio.mp3
+CMD ["freescribe", "--help"]

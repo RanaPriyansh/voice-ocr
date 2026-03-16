@@ -36,10 +36,9 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-web = ["flask>=2.0.0"]
 pdf = ["pdf2image>=1.16.0"]
 gpu = ["nvidia-cublas-cu12", "nvidia-cudnn-cu12"]
-all = ["flask>=2.0.0", "pdf2image>=1.16.0"]
+all = ["pdf2image>=1.16.0"]
 
 [project.urls]
 Homepage = "https://github.com/YOUR_USERNAME/free-voice-ocr"
