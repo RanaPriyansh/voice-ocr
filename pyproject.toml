@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "freescribe"
+version = "1.0.0"
+description = "Free, offline Speech-to-Text & OCR. No API keys, no limits."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [
+    {name = "FreeScribe Contributors"}
+]
+keywords = ["speech-to-text", "ocr", "whisper", "tesseract", "transcription", "offline"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+    "Topic :: Multimedia :: Graphics :: Capture :: Scanners",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "faster-whisper>=0.10.0",
+    "pytesseract>=0.3.10",
+    "Pillow>=9.0.0",
+]
+
+[project.optional-dependencies]
+web = ["flask>=2.0.0"]
+pdf = ["pdf2image>=1.16.0"]
+gpu = ["nvidia-cublas-cu12", "nvidia-cudnn-cu12"]
+all = ["flask>=2.0.0", "pdf2image>=1.16.0"]
+
+[project.urls]
+Homepage = "https://github.com/YOUR_USERNAME/free-voice-ocr"
+Documentation = "https://github.com/YOUR_USERNAME/free-voice-ocr#readme"
+Repository = "https://github.com/YOUR_USERNAME/free-voice-ocr"
+Issues = "https://github.com/YOUR_USERNAME/free-voice-ocr/issues"
+
+[project.scripts]
+freescribe = "freescribe.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+freescribe = ["templates/*", "static/*"]
