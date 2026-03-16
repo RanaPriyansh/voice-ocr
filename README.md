@@ -38,7 +38,7 @@ pip install freescribe
 ### Option 2: From source
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/free-voice-ocr.git
+git clone https://github.com/RanaPriyansh/free-voice-ocr.git
 cd free-voice-ocr
 pip install -e .
 ```
