@@ -41,10 +41,10 @@ gpu = ["nvidia-cublas-cu12", "nvidia-cudnn-cu12"]
 all = ["pdf2image>=1.16.0"]
 
 [project.urls]
-Homepage = "https://github.com/RanaPriyansh/free-voice-ocr"
-Documentation = "https://github.com/RanaPriyansh/free-voice-ocr#readme"
-Repository = "https://github.com/RanaPriyansh/free-voice-ocr"
-Issues = "https://github.com/RanaPriyansh/free-voice-ocr/issues"
+Homepage = "https://github.com/RanaPriyansh/voice-ocr"
+Documentation = "https://github.com/RanaPriyansh/voice-ocr#readme"
+Repository = "https://github.com/RanaPriyansh/voice-ocr"
+Issues = "https://github.com/RanaPriyansh/voice-ocr/issues"
 
 [project.scripts]
 freescribe = "freescribe.cli:main"
